@@ -1,0 +1,19 @@
+{
+  "name": "nextjs-chatgpt",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.22"
+  },
+  "dependencies": {
+    "@nextui-org/react": "^2.1.13",
+    "framer-motion": "^10.16.4",
+    "react-icons": "^4.11.0"
+  }
+}
