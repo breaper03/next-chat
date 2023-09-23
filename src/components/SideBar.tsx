@@ -41,7 +41,7 @@ const SideBar = () => {
         </div>
         {/* HISTORY AND MORE */}
         <div className="flex flex-col items-center justify-normal text-white w-full h-full">
-          
+          csm no se me ocurre un dise;o
         </div>
       </div>
     </>

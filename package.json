@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "devDependencies": {
-    "@types/react": "18.2.22"
+    "@types/react": "18.2.22",
+    "prisma": "^5.3.1"
   },
   "dependencies": {
     "@nextui-org/react": "^2.1.13",
+    "@prisma/client": "^5.3.1",
     "framer-motion": "^10.16.4",
     "react-icons": "^4.11.0"
   }
