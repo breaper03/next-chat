@@ -1,6 +1,5 @@
 //
-import SideBar from "@/components/SideBar"
-import { Button } from "@nextui-org/button"
+import SideBar from "../components/SideBar";
 
 export default function Home() {
   return (
