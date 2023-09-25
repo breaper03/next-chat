@@ -1,4 +1,5 @@
-const API_KEY = process.env.OPEN_AI_KEY;
+// const API_KEY = process.env.OPEN_AI_KEY;
+const API_KEY = "123";
 
 async function getCompletion(prompt) {
   const response = await fetch(`https://api.openai.com/v1/completions`, {
@@ -20,18 +21,4 @@ async function getCompletion(prompt) {
   return data;
 }
 
-// getCompletion()
-
-const prompt = document.querySelector("#prompt");
-const button = document.querySelector("#generate");
-const output = document.querySelector("#output");
-
-button.addEventListener("click", async () => {
-  console.log(prompt.value);
-
-  if (!prompt.value) window.alert("Please enter a prompt");
-
-  const response = await getCompletion(prompt.value);
-  console.log(response);
-  output.innerHTML = response.choices[0].text;
-});
+// getCompletion("hola dame las buenas tardes")
