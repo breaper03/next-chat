@@ -1,5 +1,5 @@
 //
-import Chat from "@/components/Chat";
+import Chat from "../components/Chat";
 import SideBar from "../components/SideBar";
 
 export default function Home() {
