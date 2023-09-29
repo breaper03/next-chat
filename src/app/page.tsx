@@ -1,4 +1,5 @@
 //
+import Chat from "@/components/Chat";
 import SideBar from "../components/SideBar";
 
 export default function Home() {
@@ -6,9 +7,14 @@ export default function Home() {
     <>
       <div className="flex w-full">
         <SideBar />
-        <div className="p-5 bg-slate-900 w-fit">
+        <div className="p-5 bg-slate-900 w-full">
           <div className="w-full">
-            <span>content here</span>
+            <div className="">
+              
+            </div>
+            <div className="">
+              <Chat />
+            </div>
           </div>
         </div>
       </div>

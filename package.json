@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "devDependencies": {
     "@types/node": "^20.6.5",
     "@types/react": "18.2.22",
+    "eslint": "^8.50.0",
     "next": "^13.5.2",
     "prisma": "^5.3.1",
     "react": "^18.2.0",
