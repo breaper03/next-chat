@@ -6,24 +6,35 @@
   font-family: "Hack Nerd Font Mono";
 }
 
+:root {
+  --green-sb: #01c38d;
+  --black-sb: #191e29;
+  --hover-black-sb: #191e2986;
+  --blue-sb: #132d46;
+  --gray-sb: #696e79;
+  --white-sb: #fafafa;
+}
+
 /* width */
 *::-webkit-scrollbar {
-  @apply w-2 rounded-lg
+  @apply w-[2px] rounded-lg
 }
 
 /* Track */
 *::-webkit-scrollbar-track {
-  @apply bg-slate-800 rounded-lg
+  background-color: var(--blue-sb);
+  @apply rounded-lg
 }
 
 /* Handle */
 *::-webkit-scrollbar-thumb {
-  @apply bg-slate-500 rounded-lg
+  background: var(--gray-sb);
+  @apply rounded-lg
 }
 
 /* Handle on hover */
 *::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--gray-sb);
 }
 
 body {
