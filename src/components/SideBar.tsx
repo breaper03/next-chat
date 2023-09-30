@@ -2,30 +2,35 @@
 
 import {BsBookHalf, BsBookmarkHeart, BsGearFill, BsPlus, BsFolder, BsTrash3Fill, BsBookmarkHeartFill} from "react-icons/bs"
 
-import { Accordion, AccordionItem, Listbox, ListboxItem, Tooltip, User } from "@nextui-org/react"
+import { Button, Input, Tooltip, User } from "@nextui-org/react"
 import Link from "next/link"
+import { BiStar, BiSolidStar } from "react-icons/bi" 
+import { RiHistoryLine, RiRobot2Line, RiSearchLine } from "react-icons/ri" 
+import { BiSolidKeyboard } from "react-icons/bi";
+
+
 
 const menu = [
   {
     title: "Favorites",
-    icon: <BsBookmarkHeart/>,
+    icon: <BiStar className="text-2xl"/>,
     type: "link"
   },
   {
-    title: "Add",
-    icon: <BsPlus/>,
+    title: "History",
+    icon: <RiHistoryLine className="text-2xl"/>,
     type: "modal"
   },
   {
-    title: "Saved",
-    icon: <BsFolder/>,
+    title: "Customize Prompt",
+    icon: <RiRobot2Line className="text-2xl"/>,
     type: "modal"
   },
 ]
 
 const history = [
   {
-    title: "Trabajo Ingieneria",
+    title: "Trabajo Medicina",
     content: [
       {
         answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
@@ -36,18 +41,7 @@ const history = [
     favorite: true
   },
   {
-    title: "Trabajo Ingieneria",
-    content: [
-      {
-        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
-        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-      }
-    ],
-    type: "Write Work",
-    favorite: false
-  },
-  {
-    title: "Trabajo Ingieneria",
+    title: "Trabajo Arquitectura",
     content: [
       {
         answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
@@ -58,7 +52,7 @@ const history = [
     favorite: true
   },
   {
-    title: "Trabajo Ingieneria",
+    title: "Trabajo Ingenieria",
     content: [
       {
         answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
@@ -69,29 +63,7 @@ const history = [
     favorite: true
   },
   {
-    title: "Trabajo Ingieneria",
-    content: [
-      {
-        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
-        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-      }
-    ],
-    type: "Write Work",
-    favorite: false
-  },
-  {
-    title: "Trabajo Ingieneria",
-    content: [
-      {
-        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
-        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
-      }
-    ],
-    type: "Write Work",
-    favorite: false
-  },
-  {
-    title: "Trabajo Ingieneria",
+    title: "Trabajo Medicina",
     content: [
       {
         answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
@@ -102,7 +74,7 @@ const history = [
     favorite: true
   },
   {
-    title: "Trabajo Ingieneria",
+    title: "Trabajo Arquitectura",
     content: [
       {
         answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
@@ -113,7 +85,7 @@ const history = [
     favorite: true
   },
   {
-    title: "Trabajo Ingieneria",
+    title: "Trabajo Ingenieria",
     content: [
       {
         answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
@@ -124,7 +96,7 @@ const history = [
     favorite: true
   },
   {
-    title: "Trabajo Farmacologia",
+    title: "Trabajo Medicina",
     content: [
       {
         answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
@@ -135,7 +107,7 @@ const history = [
     favorite: true
   },
   {
-    title: "Trabajo Administracion",
+    title: "Trabajo Arquitectura",
     content: [
       {
         answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
@@ -143,7 +115,18 @@ const history = [
       }
     ],
     type: "Write Work",
-    favorite: false
+    favorite: true
+  },
+  {
+    title: "Trabajo Ingenieria",
+    content: [
+      {
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
+        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    ],
+    type: "Write Work",
+    favorite: true
   },
 ]
 
@@ -151,76 +134,89 @@ const SideBar = () => {
   return (
     <>
       {/* box */}
-      <div className="px-4 py-5 bg-slate-700 h-screen w-1/4 flex flex-col items-center justify-normal gap-6">
-        {/* logo */}
-        <div className="mb-2 flex gap-4 flex-nowrap items-center justify-between text-xl font-medium">
-          <BsBookHalf/>
-          <h1>{"DoChat>"}</h1>
+      <div className="flex flex-col items-center justify-start h-full w-1/5 py-5 bg-[var(--hover-black-sb)] px-2">
+        {/* LOGO TITLE */}
+        <div className="flex-wrap items-center mt-5 rounded-lg justify-center flex w-fit px-8 font-semibold text-[var(--white-sb)]">
+          <BiSolidKeyboard className="text-4xl"/>
+          <span className="text-transparent">"</span>
+          <h1 className="text-3xl text-[var(--green-sb)]">WorkType</h1>
         </div>
-        {/* HISTORY AND MORE */}
-        <div className="flex flex-col items-center justify-normal text-white w-full h-full overflow-y-scroll">
-          <div className="flex w-full items-center justify-center gap-8 mt-4">
-            {
-              menu.map(item => (
-                <Tooltip content={item.title} color="foreground" placement="top" offset={15} showArrow={true}>
-                  <div key={Math.random()} className="bg-[#00000086] hover:bg-[#2e3744] text-lg  p-2 rounded-lg ">
-                    <Link href="settings">{item.icon}</Link>
-                  </div>
-                </Tooltip>
-              ))
-            }
-          </div>
-          <div className="flex flex-col w-fit items-center justify-start mx-2 mt-4">
-            {
-              history.map(item => (
-                <div className="border-2 border-slate-500 w-full flex flex-nowrap gap-2 px-2 py-2 rounded-lg bg-[#2e374486] text-white font-medium justify-between my-2">
-                  <div className="flex flex-col items-start justify-between">
-                    <h1 className="font-semibold text-indigo-200">{item.title}</h1>
-                    <span className="text-base font-semibold">{item.type}</span>
-                  </div>
-                  <div className="flex flex-wrap gap-2 items-center">
-                    { item.favorite
-                      ? (
-                      <Tooltip content="Favorite" color="foreground" placement="top" offset={15} showArrow={true}>
-                        <div key={Math.random()} className="bg-[#00000086] hover:bg-[#2e3744] items-center p-2 rounded-lg ">
-                          <Link href="settings"><BsBookmarkHeart/></Link>
-                        </div>
-                      </Tooltip>
-                      ) : (
-                        <Tooltip content="Favorite" color="foreground" placement="top" offset={15} showArrow={true}>
-                          <div key={Math.random()} className="bg-[#00000086] hover:bg-[#2e3744] items-center p-2 rounded-lg text-red-500">
-                            <Link href="settings"><BsBookmarkHeartFill/></Link>
-                          </div>
-                        </Tooltip>
-                      )
-                    }
-                    <Tooltip content="Delete" color="foreground" placement="top" offset={15} showArrow={true}>
-                      <div key={Math.random()} className="bg-[#00000086] hover:bg-[#2e3744]  p-2 rounded-lg ">
-                        <Link href="settings"><BsTrash3Fill/></Link>
-                      </div>
-                    </Tooltip>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-        {/* SETTING AND OPTIONS */}
-        <div className="mb-2 flex gap-4 flex-nowrap items-center justify-evenly text-xl font-medium">
-          <div className="">
-            <User   
-              name="Jane Doe"
-              description="janedoe@gmail.com"
-              avatarProps={{
-                src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
+        <div className="flex-wrap items-center mt-8 rounded-lg justify-center flex w-full px-8 font-semibold text-[var(--white-sb)]">
+          {/* Search Bar */}
+          <div className="w-full">
+            <Input
+              key={1}
+              radius="sm"
+              type="text"
+              classNames={{
+                label: "text-black/50 dark:text-white/90",
+                input: [
+                  "font-semibold",
+                  "bg-transparent",
+                  "text-black/90 dark:text-white/90",
+                  "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+                ],
+                innerWrapper: "bg-transparent",
+                inputWrapper: [
+                  "shadow-xl",
+                  "bg-default-200/50",
+                  "dark:bg-default/60",
+                  "backdrop-blur-xl",
+                  "backdrop-saturate-200",
+                  "hover:bg-default-200/70",
+                  "dark:hover:bg-default/70",
+                  "group-data-[focused=true]:bg-default-200/50",
+                  "dark:group-data-[focused=true]:bg-default/60",
+                  "!cursor-text",
+                ],
               }}
+              placeholder="Type to search..."
+              startContent={
+                <RiSearchLine className="text-emerald-500 dark:text-white/90 text-2xl  pointer-events-none flex-shrink-0" />
+              }
+              //
             />
           </div>
-          <div className="bg-[#00000086] hover:bg-[#2e3744] p-2 rounded-lg justify-end">
-            <Tooltip content="Settings" color="foreground" placement="right" offset={15} showArrow={true}>
-              <Link href="settings"><BsGearFill/></Link>
-            </Tooltip>
+          {/* Links */}
+          <div className="flex flex-col items-center justify-center gap-y-3 w-full mt-5">
+            {
+              menu.map(item => (
+                <Button className="hover:bg-[var(--blue-sb)] text-white hover:text-[--green-sb] bg-transparent w-full flex items-center justify-start text-base" radius="sm">
+                  <Link className="flex flex-wrap gap-4 font-normal" href="users">
+                    {item.icon} <h1>{item.title}</h1>  
+                  </Link>
+                </Button>
+              ))
+            }
           </div>
+        </div>
+        <hr className="bg-[var(--green-sb)] my-5 w-full"/>
+        <h1 className="font-semibold text-2xl">History</h1>
+        <div className="flex-wrap overflow-y-scroll h-[93em] scroll-smooth items-center mt-8 rounded-lg justify-center flex w-full px-8 font-semibold text-[var(--white-sb)]">
+          <div className="flex flex-col items-center gap-y-3 w-full mt-5 h-fit">
+            {
+              history.map(item => (
+                <Button className="hover:bg-[var(--blue-sb)] text-white hover:text-[--green-sb] bg-transparent w-[97%] flex items-center justify-start text-base" radius="sm">
+                  <Link className="flex flex-wrap font-normal" href="users">
+                    <h1>{item.title}</h1>  
+                  </Link>
+                </Button>
+              ))
+            }
+          </div>
+        </div>
+        <div className="flex-wrap items-end mt-8 rounded-lg justify-between flex h-full w-full px-8 font-semibold text-[var(--white-sb)]">
+          <User   
+            name="Junior Garcia"
+            description={(
+              <Link href="https://twitter.com/jrgarciadev">
+                @jrgarciadev
+              </Link>
+            )}
+            avatarProps={{
+              src: "https://avatars.githubusercontent.com/u/30373425?v=4"
+            }}
+          />
         </div>
       </div>
     </>
