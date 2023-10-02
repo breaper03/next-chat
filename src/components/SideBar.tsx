@@ -139,7 +139,7 @@ const SideBar = () => {
         <div className="flex-wrap items-center mt-5 rounded-lg justify-center flex w-fit px-8 font-semibold text-[var(--white-sb)]">
           <BiSolidKeyboard className="text-4xl"/>
           <span className="text-transparent">"</span>
-          <h1 className="text-3xl text-[var(--green-sb)]">WorkType</h1>
+          <h1 className="text-2xl text-[var(--green-sb)]">WorkType</h1>
         </div>
         <div className="flex-wrap items-center mt-8 rounded-lg justify-center flex w-full px-8 font-semibold text-[var(--white-sb)]">
           {/* Search Bar */}
@@ -172,7 +172,7 @@ const SideBar = () => {
               }}
               placeholder="Type to search..."
               startContent={
-                <RiSearchLine className="text-emerald-500 dark:text-white/90 text-2xl  pointer-events-none flex-shrink-0" />
+                <RiSearchLine className="text-emerald-500 dark:text-white/90 text-xl  pointer-events-none flex-shrink-0" />
               }
               //
             />
@@ -181,9 +181,9 @@ const SideBar = () => {
           <div className="flex flex-col items-center justify-center gap-y-3 w-full mt-5">
             {
               menu.map(item => (
-                <Button className="hover:bg-[var(--blue-sb)] text-white hover:text-[--green-sb] bg-transparent w-full flex items-center justify-start text-base" radius="sm">
-                  <Link className="flex flex-wrap gap-4 font-normal" href="users">
-                    {item.icon} <h1>{item.title}</h1>  
+                <Button className="hover:bg-[var(--blue-sb)] text-white hover:text-[--green-sb] bg-transparent w-full flex items-center justify-start text-[0.83em]" radius="sm">
+                  <Link className="flex flex-wrap gap-4 items-center justify-center font-medium" href="users">
+                    <span>{item.icon}</span> <h1 className="">{item.title}</h1>  
                   </Link>
                 </Button>
               ))
@@ -196,7 +196,7 @@ const SideBar = () => {
           <div className="flex flex-col items-center gap-y-3 w-full mt-5 h-fit">
             {
               history.map(item => (
-                <Button className="hover:bg-[var(--blue-sb)] text-white hover:text-[--green-sb] bg-transparent w-[97%] flex items-center justify-start text-base" radius="sm">
+                <Button className="hover:bg-[var(--blue-sb)] text-white hover:text-[--green-sb] bg-transparent w-[97%] flex items-center justify-start text-sm" radius="sm">
                   <Link className="flex flex-wrap font-normal" href="users">
                     <h1>{item.title}</h1>  
                   </Link>
@@ -205,7 +205,7 @@ const SideBar = () => {
             }
           </div>
         </div>
-        <div className="flex-wrap items-end mt-8 rounded-lg justify-between flex h-full w-full px-8 font-semibold text-[var(--white-sb)]">
+        <div className="flex-wrap items-end mt-8 rounded-lg justify-center flex h-full w-full px-8 text-[var(--white-sb)]">
           <User   
             name="Junior Garcia"
             description={(

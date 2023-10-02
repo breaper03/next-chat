@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "Hack Nerd Font Mono";
-}
-
 :root {
   --green-sb: #01c38d;
   --black-sb: #191e29;
