@@ -4,9 +4,10 @@ import {BsBookHalf, BsBookmarkHeart, BsGearFill, BsPlus, BsFolder, BsTrash3Fill,
 
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Input, Tooltip, User } from "@nextui-org/react"
 import Link from "next/link"
-import { BiStar, BiSolidStar } from "react-icons/bi" 
-import { RiHistoryLine, RiRobot2Line, RiSearchLine } from "react-icons/ri" 
+import { BiStar, BiSolidStar, BiSolidPencil, BiSolidTrashAlt } from "react-icons/bi" 
+import { RiChat4Line, RiHistoryLine, RiRobot2Line, RiSearchLine } from "react-icons/ri" 
 import { BiSolidKeyboard } from "react-icons/bi";
+import { PiChatDotsBold } from "react-icons/pi";
 
 
 
@@ -15,11 +16,6 @@ const menu = [
     title: "Favorites",
     icon: <BiStar className="text-2xl"/>,
     type: "link"
-  },
-  {
-    title: "History",
-    icon: <RiHistoryLine className="text-2xl"/>,
-    type: "modal"
   },
   {
     title: "Customize Prompt",
@@ -41,6 +37,94 @@ const history = [
     favorite: true
   },
   {
+    title: "Trabajo Medicina",
+    content: [
+      {
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
+        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    ],
+    type: "Write Work",
+    favorite: true
+  },
+  {
+    title: "Trabajo Medicina",
+    content: [
+      {
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
+        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    ],
+    type: "Write Work",
+    favorite: true
+  },
+  {
+    title: "Trabajo Medicina",
+    content: [
+      {
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
+        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    ],
+    type: "Write Work",
+    favorite: true
+  },
+  {
+    title: "Trabajo Medicina",
+    content: [
+      {
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
+        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    ],
+    type: "Write Work",
+    favorite: true
+  },
+  {
+    title: "Trabajo Medicina",
+    content: [
+      {
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
+        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    ],
+    type: "Write Work",
+    favorite: true
+  },
+  {
+    title: "Trabajo Medicina",
+    content: [
+      {
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
+        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    ],
+    type: "Write Work",
+    favorite: true
+  },
+  {
+    title: "Trabajo Medicina",
+    content: [
+      {
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
+        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    ],
+    type: "Write Work",
+    favorite: true
+  },
+  {
+    title: "Trabajo Medicina",
+    content: [
+      {
+        answer: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dignissimos ullam totam unde vero corporis eligendi quis libero, consequatur repellendus dicta magnam.", 
+        prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      }
+    ],
+    type: "Write Work",
+    favorite: true
+  },
+  {
     title: "Trabajo Arquitectura",
     content: [
       {
@@ -130,82 +214,38 @@ const history = [
   },
 ]
 
-const SideBar = () => {
+const SideBar2 = () => {
   return (
     <>
       {/* box */}
-      <div className="flex flex-col items-center justify-start h-full w-1/5 py-5 bg-[var(--hover-black-sb)] px-2">
+      <div className="flex flex-col items-center justify-start h-full max-w-[350px] w-[325px] py-5 bg-[var(--hover-black-sb)] px-2">
         {/* LOGO TITLE */}
-        <Link href="/" className="flex-wrap items-center mt-5 rounded-lg justify-center flex w-fit px-8 font-semibold text-[var(--white-sb)]">
+        <Link href="/" className="flex-wrap items-center mt-2 rounded-lg justify-center flex w-fit px-8 font-semibold text-[var(--white-sb)]">
           <BiSolidKeyboard className="text-4xl"/>
           <span className="text-transparent">"</span>
-          <h1 className="text-2xl text-[var(--yellow-sb)]">WorkType</h1>
+          <h1 className="text-2xl text-[var(--yellow-sb)] font-mono">WorkType</h1>
         </Link>
-        <div className="flex-wrap items-center mt-8 rounded-lg justify-center flex w-full px-8 font-semibold text-[var(--white-sb)]">
-          {/* Search Bar */}
-          <div className="w-full">
-            <Input
-              key={1}
-              radius="sm"
-              type="text"
-              classNames={{
-                label: "text-black/50 dark:text-white/90",
-                input: [
-                  "font-semibold",
-                  "bg-transparent",
-                  "text-black/90 dark:text-white/90",
-                  "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-                ],
-                innerWrapper: "bg-transparent",
-                inputWrapper: [
-                  "shadow-xl",
-                  "bg-default-200/50",
-                  "dark:bg-default/60",
-                  "backdrop-blur-xl",
-                  "backdrop-saturate-200",
-                  "hover:bg-default-200/70",
-                  "dark:hover:bg-default/70",
-                  "group-data-[focused=true]:bg-default-200/50",
-                  "dark:group-data-[focused=true]:bg-default/60",
-                  "!cursor-text",
-                ],
-              }}
-              placeholder="Type to search..."
-              startContent={
-                <RiSearchLine className="text-emerald-500 dark:text-white/90 text-xl  pointer-events-none flex-shrink-0" />
-              }
-              //
-            />
-          </div>
-          {/* Links */}
-          <div className="flex flex-col items-center justify-center gap-y-3 w-full mt-5">
-            {
-              menu.map(item => (
-                <Button className="hover:bg-[var(--blue-sb)] text-white hover:text-[--yellow-sb] bg-transparent w-full flex items-center justify-start text-[0.83em]" radius="sm">
-                  <Link className="flex flex-wrap gap-4 items-center justify-center font-medium" href="users">
-                    <span>{item.icon}</span> <h1 className="">{item.title}</h1>  
-                  </Link>
-                </Button>
-              ))
-            }
-          </div>
-        </div>
-        <hr className="bg-[var(--yellow-sb)] my-5 w-full"/>
-        <h1 className="font-mono text-2xl cursor-pointer hover:text-[--yellow-sb] transition-all delay-100">History</h1>
-        <div className="flex-wrap overflow-y-scroll h-[93em] scroll-smooth items-center mt-4 rounded-lg justify-center flex w-full px-8 font-semibold text-[var(--white-sb)]">
-          <div className="flex flex-col items-center gap-y-3 w-full h-fit">
+        <div className="w-full h-full mt-4 overflow-y-scroll scroll-smooth">
+          <div className="h-full flex-col">
+
             {
               history.map(item => (
-                <Button className="hover:bg-[var(--blue-sb)] text-white hover:text-[--yellow-sb] bg-transparent w-[97%] flex items-center justify-start text-sm" radius="sm">
-                  <Link className="flex flex-wrap font-normal" href="users">
-                    <h1>{item.title}</h1>  
-                  </Link>
-                </Button>
+                <Link href="/" className="flex flex-wrap items-center justify-around mx-1 mb-3 px-2 py-2 transition delay-75 hover:text-[var(--yellow-sb)] hover:bg-[var(--hover-blue-sb)] active:bg-[var(--hover-blue-sb)] rounded-lg">
+                  <div className="flex flex-nowrap w-[70%] max-w-[70%] items-center gap-2 font-semibold text-xl overflow-hidden">
+                    <PiChatDotsBold className="text-xl"/>
+                    <h3 className="flex whitespace-pre overflow-ellipsis text-base font-mono font-normal max-w-32 min-w-32 items-center  h-10 overflow-hidden">{item.title}</h3>
+                  </div>
+                  <div className="flex items-center w-[25%] max-w-[25%] gap-1">
+                    <button className="hover:text-[var(--yellow-sb)] text-[var(--white-sb)] p-[0.35rem] rounded-lg"><BiSolidPencil/></button>
+                    <button className="hover:text-[var(--yellow-sb)] text-[var(--white-sb)] p-[0.35rem] rounded-lg"><BiSolidTrashAlt/></button>
+                  </div>
+                </Link>
               ))
             }
+
           </div>
         </div>
-        <div className="flex-wrap items-end gap-3 mt-8 rounded-lg justify-between flex h-full w-full px-8 text-[var(--white-sb)]">
+        <div className="flex-wrap items-end gap-3 mt-4 rounded-lg justify-between flex h-fit w-full px-3 text-[var(--white-sb)]">
           <User   
             name="Messi Dios"
             description={(
@@ -241,4 +281,4 @@ const SideBar = () => {
 }
 
 
-export default SideBar
+export default SideBar2

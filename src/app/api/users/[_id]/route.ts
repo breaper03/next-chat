@@ -16,3 +16,15 @@ export async function PUT(request: any, {params}: any) {
     return NextResponse.json(error.message)
   }
 }
+
+export async function DELETE(request: any, {params}: any ) {
+  console.log(params._id)
+  try {
+    const deleteTask = await prisma.user.delete({
+      where: {id: params._id}
+    })
+    return NextResponse.json(deleteTask)
+  } catch (error: any) {
+    return NextResponse.json(error.message)
+  }
+}
