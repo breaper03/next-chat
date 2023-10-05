@@ -19,11 +19,3 @@ export async function POST(request: Request) {
   })
   return NextResponse.json(newTask)
 }
-
-export async function UPDATE(_id: string, request: Request) {
-  const { name, lastname, email } = await request.json()
-  const updateTask: any = await prisma.user.create({
-    data: { name, lastname, email }
-  });
-  return NextResponse.json(updateTask)
-}
