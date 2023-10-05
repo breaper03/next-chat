@@ -2,22 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "Hack Nerd Font Mono";
-}
-
-:root {
+/* :root {
   --green-sb: #01c38d;
   --black-sb: #191e29;
-  --hover-black-sb: #191e2986;
+  --hover-black-sb: #191e29c2;
   --blue-sb: #132d46;
+  --hover-blue-sb: #132d46a4;
+  --gray-sb: #696e79;
+  --white-sb: #fafafa;
+} */
+
+:root {
+  --yellow-sb: #f9b17a;
+  --hover-yellow-sb: #f9b17abb;
+  --black-sb: #191e29;
+  --hover-black-sb: #191e29c2;
+  --blue-sb: #132d46;
+  --hover-blue-sb: #132d46a4;
   --gray-sb: #696e79;
   --white-sb: #fafafa;
 }
 
 /* width */
 *::-webkit-scrollbar {
-  @apply w-[2px] rounded-lg
+  @apply w-[3px] rounded-lg
 }
 
 /* Track */
@@ -28,13 +36,13 @@
 
 /* Handle */
 *::-webkit-scrollbar-thumb {
-  background: var(--gray-sb);
+  background: var(--hover-yellow-sb);
   @apply rounded-lg
 }
 
 /* Handle on hover */
 *::-webkit-scrollbar-thumb:hover {
-  background: var(--gray-sb);
+  @apply bg-[var(--yellow-sb)]
 }
 
 body {
