@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,9 +7,63 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  email String @unique
-  name String
-  lastname String
+type messages {
+  from String
+  text String
 }
+
+model History {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  messages    messages[]
+  title       String
+  userId      String
+}
+
+model User {
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  email         String
+  history       String[] @default([])
+  lastname      String
+  firstname     String
+}
+
+// User
+// {
+//   "_id": {
+//     "$oid": "651f18ae076255400b534071"
+//   },
+//   "email": "paez@gmail.com",
+//   "firstname": gabriel, 
+//   "lastname": paez,
+//   "history": ["idhistorial1", "idhistorial1"]
+// }
+
+// History
+// {
+//   "_id": {
+//     "$oid": "651f18ae076255400b534071"
+//   },
+//   "messagesId": "el id"
+//   "title": "History 1",
+//   "userId": "651f13254989171ccb74bbad",
+// }
+
+// Messages
+// {
+//   "messages": {
+//     "_id": {
+//       "$oid": "651f13254989171ccb74good"
+//     },
+//     "historyId": "123",
+//     "messageData": [
+//     	{
+//       	"text": "hello world from user",
+//       	"from": "user"
+//     	},
+//     	{
+//       	"text": "hello world from api",
+//       	"from": "api"
+//     	}
+//   	]
+//   }
+// }

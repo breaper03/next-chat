@@ -126,7 +126,6 @@ const history = [
       }
     ],
     type: "Write Work",
-    favorite: true
   },
 ]
 

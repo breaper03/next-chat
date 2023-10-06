@@ -4,53 +4,59 @@ import { Button, Input } from '@nextui-org/react'
 import { useState } from "react"
 import { HiArrowCircleRight } from "react-icons/hi";
 import { BiSolidKeyboard } from "react-icons/bi";
+import { ChatRole, History } from "@/common/interfaces/History";
 
 const Chat = () => {
 
   const [prompt, setPrompt] = useState("")
 
-  const history = [
-    {
-      id: "1",
-      text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
-      from: "user"
-    },
-    {
-      id: "2",
-      text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
-      from: "api"
-    },
-    {
-      id: "3",
-      text: "hello world in python",
-      from: "user"
-    },
-    {
-      id: "4",
-      text: "print('hello world')",
-      from: "api"
-    },
-    {
-      id: "5",
-      text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
-      from: "user"
-    },
-    {
-      id: "6",
-      text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
-      from: "api"
-    },
-    {
-      id: "7",
-      text: "hello world in python",
-      from: "user"
-    },
-    {
-      id: "8",
-      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ut tempora placeat recusandae rem magni voluptatem voluptas architecto, velit aliquam numquam itaque aspernatur perspiciatis ducimus. Explicabo, dolorem perferendis rerum quos numquam alias doloribus fuga asperiores officiis eos amet a, delectus velit. Sit cumque recusandae fuga odit neque numquam, ducimus iusto?",
-      from: "api"
-    },
-  ]
+  const history: History = {
+    _id: "1dfddfddfdf",
+    title: "Trabajo numer 1",
+    messages: [
+      {
+        _id: "1",
+        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
+        from: ChatRole.user
+      },
+      {
+        _id: "2",
+        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
+        from: ChatRole.api
+      },
+      {
+        _id: "3",
+        text: "hello world in python",
+        from: ChatRole.user
+      },
+      {
+        _id: "4",
+        text: "print('hello world')",
+        from: ChatRole.api
+      },
+      {
+        _id: "5",
+        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
+        from: ChatRole.user
+      },
+      {
+        _id: "6",
+        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
+        from: ChatRole.api
+      },
+      {
+        _id: "7",
+        text: "hello world in python",
+        from: ChatRole.user
+      },
+      {
+        _id: "8",
+        text: "print('hello world')",
+        from: ChatRole.api
+      }
+    ],
+    userId: "1"
+  }
 
   const handleOnChange = (e: any) => {
     e.preventDefault()
@@ -73,10 +79,10 @@ const Chat = () => {
           {/* chat history */}
           <div className="flex flex-col px-10 scroll-smooth">
             {
-              history.map(item => (
-                <div key={item.id} className={`flex flex-col items-start ${item.from === "user" ? "items-end" : "items-start"}`}>
+              history.messages.map(item => (
+                <div key={item._id} className={`flex flex-col items-start ${item.from === ChatRole.user ? "items-end" : "items-start"}`}>
                   {
-                    item.from === "user" ? (
+                    item.from === ChatRole.user ? (
                       <>
                         <div className="bg-gray-800 float-right py-3 px-3 max-w-2xl rounded-lg mb-7">
                           <div className="font-semibold font-mono text-lg text-[var(--hover-yellow-sb)] uppercase mb-2 w-fit">

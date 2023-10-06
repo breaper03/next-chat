@@ -33,8 +33,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Medicina",
@@ -44,8 +43,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Medicina",
@@ -55,8 +53,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Medicina",
@@ -66,8 +63,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Medicina",
@@ -77,8 +73,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Medicina",
@@ -88,8 +83,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Medicina",
@@ -99,8 +93,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Medicina",
@@ -110,8 +103,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Medicina",
@@ -121,8 +113,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Arquitectura",
@@ -132,8 +123,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Ingenieria",
@@ -143,8 +133,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Medicina",
@@ -154,8 +143,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Arquitectura",
@@ -165,8 +153,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Ingenieria",
@@ -176,8 +163,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Medicina",
@@ -187,8 +173,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Arquitectura",
@@ -198,8 +183,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
   {
     title: "Trabajo Ingenieria",
@@ -209,8 +193,7 @@ const history = [
         prompt: "Lorem ipsum dolor sit amet consectetur adipisicing elit."
       }
     ],
-    type: "Write Work",
-    favorite: true
+    type: "Write Work"
   },
 ]
 

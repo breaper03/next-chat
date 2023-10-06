@@ -6,10 +6,10 @@ import { NextResponse } from "next/server";
 // dhdhdhd
 export async function PUT(request: any, {params}: any) {
   try {
-    const { name, lastname, email } = await request.json()
+    const { firstname, lastname, email } = await request.json()
     const updateTask = await prisma.user.update({
       where: { id: params._id },
-      data: { name, lastname, email }
+      data: { firstname, lastname, email }
     })
     return NextResponse.json(updateTask)
   } catch (error: any) {
