@@ -1,6 +1,8 @@
-export interface User {
-  name: string,
+export interface IUser {
+  firstname: string,
   lastname: string,
   email: string,
-  history: History[]
+  password: string,
+  token: string
+  history?: History[]
 }

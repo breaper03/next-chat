@@ -3,7 +3,6 @@
 import { prisma } from "../../../../libs/prisma";
 import { NextResponse } from "next/server";
 
-// dhdhdhd
 export async function PUT(request: any, {params}: any) {
   try {
     const { firstname, lastname, email } = await request.json()
@@ -16,6 +15,7 @@ export async function PUT(request: any, {params}: any) {
     return NextResponse.json(error.message)
   }
 }
+
 
 export async function DELETE(request: any, {params}: any ) {
   console.log(params._id)

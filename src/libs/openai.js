@@ -1,5 +1,5 @@
 const API_KEY = "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"
-console.log("API_KEY", API_KEY)
+
 export async function getCompletion(prompt) {
   const response = await fetch(`https://api.openai.com/v1/completions`, {
     method: "POST",

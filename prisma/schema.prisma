@@ -21,49 +21,10 @@ model History {
 
 model User {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
-  email         String
+  email         String @unique
+  password      String 
   history       String[] @default([])
   lastname      String
   firstname     String
+  token         String @default("")
 }
-
-// User
-// {
-//   "_id": {
-//     "$oid": "651f18ae076255400b534071"
-//   },
-//   "email": "paez@gmail.com",
-//   "firstname": gabriel, 
-//   "lastname": paez,
-//   "history": ["idhistorial1", "idhistorial1"]
-// }
-
-// History
-// {
-//   "_id": {
-//     "$oid": "651f18ae076255400b534071"
-//   },
-//   "messagesId": "el id"
-//   "title": "History 1",
-//   "userId": "651f13254989171ccb74bbad",
-// }
-
-// Messages
-// {
-//   "messages": {
-//     "_id": {
-//       "$oid": "651f13254989171ccb74good"
-//     },
-//     "historyId": "123",
-//     "messageData": [
-//     	{
-//       	"text": "hello world from user",
-//       	"from": "user"
-//     	},
-//     	{
-//       	"text": "hello world from api",
-//       	"from": "api"
-//     	}
-//   	]
-//   }
-// }

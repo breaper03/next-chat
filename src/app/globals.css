@@ -14,13 +14,15 @@
 
 :root {
   --yellow-sb: #f9b17a;
-  --hover-yellow-sb: #f9b17abb;
+  --hover-yellow-sb: #f9b17aa1;
   --black-sb: #191e29;
   --hover-black-sb: #191e29c2;
   --blue-sb: #132d46;
   --hover-blue-sb: #132d46a4;
-  --gray-sb: #696e79;
+  --gray-sb: #1b1c20;
+  --hover-gray-sb: #1b1c20bb;
   --white-sb: #fafafa;
+  --hover-white-sb: #fafafabb;
 }
 
 /* width */

@@ -1,155 +1,120 @@
 "use client"
 import { getCompletion } from "../libs/openai"
-import { Button, Input } from '@nextui-org/react'
-import { useState } from "react"
+import { Button, Input, Spinner } from '@nextui-org/react'
+import { useEffect, useState } from "react"
 import { HiArrowCircleRight } from "react-icons/hi";
 import { BiSolidKeyboard } from "react-icons/bi";
-import { ChatRole, History } from "@/common/interfaces/History";
+import { ChatRole, History, Message } from "@/common/interfaces/History";
+import "./Chat.css"
+import Loading from "./Loading";
 
-const Chat = () => {
+const Chat = ({chatId}: any) => {
 
-  const [prompt, setPrompt] = useState("")
+  const [loading, setLoading] = useState(false);
 
-  const history: History = {
-    _id: "1dfddfddfdf",
-    title: "Trabajo numer 1",
-    messages: [
-      {
-        _id: "1",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
-        from: ChatRole.user
-      },
-      {
-        _id: "2",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
-        from: ChatRole.api
-      },
-      {
-        _id: "3",
-        text: "hello world in python",
-        from: ChatRole.user
-      },
-      {
-        _id: "4",
-        text: "print('hello world')",
-        from: ChatRole.api
-      },
-      {
-        _id: "5",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
-        from: ChatRole.user
-      },
-      {
-        _id: "6",
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum modi quos nihil incidunt nemo fugit.",
-        from: ChatRole.api
-      },
-      {
-        _id: "7",
-        text: "hello world in python",
-        from: ChatRole.user
-      },
-      {
-        _id: "8",
-        text: "print('hello world')",
-        from: ChatRole.api
-      }
-    ],
-    userId: "1"
+  const [historyList, setHistoryList] = useState<History | any>({})
+
+  useEffect(() => {
+    !chatId ? handleGet() : setHistoryList({})
+  }, []);
+
+  const menu = [
+    {
+      title: "Crear nuevo Chat", 
+      icon: <BiSolidKeyboard/>
+    },
+  ]
+
+  const handleGet = async () => {
+    setLoading(true)
+    try {
+      const res = await fetch(`http://localhost:3000/api/history/${chatId}`, {method: "GET"})
+      const history = await res.json()
+      setHistoryList(history)      
+    } catch (error: any) {
+      setHistoryList({})
+    }
+    setLoading(false);
   }
 
-  const handleOnChange = (e: any) => {
-    e.preventDefault()
-    const value = e.target.value
-    console.log("process.env.OPENAI_KEY", process.env.DATABASE_URL)
-    console.log(value)
-    setPrompt(value)
-  }
+  let prompt = ""
 
   const handleSubmit =  async (e: any) => {
     e.preventDefault()
-    console.log(process.env.OPENAI_KEY)
-    await getCompletion(prompt)
+    try {
+      const res = await getCompletion(prompt)
+      const data = await res.json()
+
+      return data      
+    } catch (error: any) {
+      return error.message
+    }
   }
 
   return (
     <>
-      <div className="w-full bg-transparent items-center max-h-full h-[56.9em] justify-between flex flex-col-reverse">
+      <div className="w-full bg-transparent items-center max-h-full h-[56.9em] mt-3 justify-between flex flex-col-reverse">
         <div className="w-full items-center h-[100%] mb-24 justify-between flex-col overflow-y-scroll">
           {/* chat history */}
-          <div className="flex flex-col px-10 scroll-smooth">
-            {
-              history.messages.map(item => (
-                <div key={item._id} className={`flex flex-col items-start ${item.from === ChatRole.user ? "items-end" : "items-start"}`}>
+          {
+            !chatId 
+              ? (
+                <h1>{chatId}</h1>
+              ) : (
+                <div key={Math.random()} className="w-full h-full flex items-center justify-center gap-5">
                   {
-                    item.from === ChatRole.user ? (
-                      <>
-                        <div className="bg-gray-800 float-right py-3 px-3 max-w-2xl rounded-lg mb-7">
-                          <div className="font-semibold font-mono text-lg text-[var(--hover-yellow-sb)] uppercase mb-2 w-fit">
-                            <h1>{`> ${item.from}:`}</h1>
-                          </div>
-                          <div className="text-[var(--yellow-sb)] text-base font-mono">
-                            <span>
-                              {item.text}
-                            </span>
-                          </div>
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="bg-[var(--yellow-sb)] float-right py-3 px-3 max-w-2xl rounded-lg mb-7">
-                          <div className="font-semibold font-mono text-lg text-gray-800 uppercase mb-2 w-fit">
-                            <h1>{`> ${item.from}:`}</h1>
-                          </div>
-                          <div className="text-gray-800 text-base font-mono">
-                            <span>
-                              {item.text}
-                            </span>
-                          </div>
-                        </div>
-                      </>
-                    )
+                    menu.map(item => (
+                      <Button key={Math.random()} onClick={() => alert("helloworld")}
+                        className="flex flex-col items-center justify-center h-fit border-3 bg-[--hover-black-sb] hover:bg-[--hover-gray-sb] ring-2 ring-[--hover-yellow-sb] hover:cursor-pointer border-transparent py-6 px-3 rounded-lg">
+                        <h1 className="font-mono font-semibold flex-nowrap text-lg text-[--yellow-sb]">{item.title}</h1>
+                        <span className="text-4xl text-[--yellow-sb]">{item.icon}</span>
+                      </Button>
+                    ))
                   }
                 </div>
-              ))
-            }
+              )
+          }
+          <div className={`flex flex-col px-10 scroll-smooth ${!historyList || !historyList.messages  ? "h-full backdrop-blur-md" : ""}`}>
+              
           </div>
         </div>
+
         {/* chat input */}
-        <div className="w-fit h-fit flex items-end justify-center mb-6 fixed py-1 bg-red-300">
+        <div className="w-fit h-fit flex items-end justify-center mb-6 fixed py-1">
           <form onSubmitCapture={handleSubmit}  key={Math.random()} className="flex w-1/2 flex-wrap md:flex-nowrap mb-6 md:mb-0 fixed gap-4 text-white justify-center items-center backdrop-blur-xl p-5 rounded-lg">
             <Input
               placeholder="Write a question..."
+              onValueChange={(e) => prompt = e }
               isClearable
-              autoFocus
+              isDisabled={loading}
               radius="lg"
               size="lg"
               classNames={{
                 input: [
                   "bg-transparent",
                   "font-mono font-medium",
-                  "text-black/90 dark:text-white/90",
-                  "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+                  "text-[--yellow-sb]",
+                  "placeholder:text-[--yellow-sb]",
                 ],
-                innerWrapper: "bg-transparent",
+                innerWrapper: [
+                  "bg-transparent",
+                ],
                 inputWrapper: [
-                  "shadow-xl",
-                  "bg-default-200/50",
-                  "dark:bg-default/60",
+                  "bg-transparent",
                   "backdrop-blur-xl",
                   "backdrop-saturate-200",
-                  "hover:bg-default-200/70",
-                  "dark:hover:bg-default/70",
-                  "group-data-[focused=true]:bg-default-200/50",
-                  "dark:group-data-[focused=true]:bg-default/60",
-                  "!cursor-text",
+                  "hover:bg-transparent",
+                  "group-data-[focused=true]:bg-transparent",
+                  "cursor-text",
+                  "border-[--hover-blue-sb] border-2"
                 ],
+                clearButton: ["text-red-500"],
               }}
               startContent={
-                <BiSolidKeyboard className="text-[var(--yellow-sb)] dark:text-white/90 text-2xl  pointer-events-none flex-shrink-0" />
+                <BiSolidKeyboard className="text-[var(--yellow-sb)] text-2xl pointer-events-none flex-shrink-0" />
               }
             />
-            <Button isIconOnly className='bg-[var(--yellow-sb)] hover:bg-[#10b9818a] flex items-center justify-center backdrop-blur-sm' variant="flat" aria-label="Take a photo" onClick={handleSubmit}>
+            <Button isIconOnly className='bg-[var(--hover-yellow-sb)] hover:bg-[--yellow-sb] flex items-center justify-center backdrop-blur-sm' variant="flat" aria-label="Take a photo" onClick={handleSubmit}>
               <HiArrowCircleRight className="text-white text-3xl"/>
             </Button>
           </form>

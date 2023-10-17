@@ -17,6 +17,7 @@ export async function POST(request: Request) {
       messages: [{text: "Hello", from: "api"}],
       userId: userId
     }
-  })
+  });
+
   return NextResponse.json(newHistory)
 }

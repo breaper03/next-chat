@@ -13,9 +13,8 @@ export interface History {
 }
 
 export interface Message {
-  _id: string,
   text: string,
-  from: ChatRole,
+  from: string,
   createAt?: Date,
   UpdateAt?: Date
 }

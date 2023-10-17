@@ -20,16 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <Providers>
-        <div className="flex w-full h-screen max-h-full overflow-hidden">
-          <SideBar2 />
-          <div className="p-1 bg-[var(--black-sb)] w-full">
-            <div className="w-full h-full">
-              <div className="">
-                {children}
-              </div>
-            </div>
-          </div>
-        </div>
+          { children }
         </Providers>
       </body>
     </html>
